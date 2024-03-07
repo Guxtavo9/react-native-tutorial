@@ -7,9 +7,10 @@ H1.propTypes = {};
 
 const styles = StyleSheet.create({
   h1: {
-    fontSize: 30,
+    fontSize: 40,
     fontWeight: "bold",
-    color: "#fff"
+    color: "#000",
+    marginBottom: 10,
   },
 });
 
