@@ -1,29 +1,27 @@
 import { StyleSheet, View, FlatList } from "react-native";
 import H1 from "./ui/H1";
 import CardUser from "./CardUser";
-
-const users = [
-  {
-    id: 1,
-    name: "Xabulla Xabuleixons",
-    email: "xabulla@xabulla.com",
-    avatar: "https://picsum.photos/60/60",
-  },
-  {
-    id: 2,
-    name: "Thwongos Thwongosons",
-    email: "thwongos@thwongos.com",
-    avatar: "https://picsum.photos/60/60",
-  },
-  {
-    id: 3,
-    name: "Lhongus Lhungusons",
-    email: "lhongus@lhongus.com",
-    avatar: "https://picsum.photos/60/60",
-  },
-];
+import { useEffect, useState } from "react";
 
 const Body = () => {
+
+  const [users, setUsers] = useState([]);  
+
+  const getUsers = async () => {
+    try {
+      const result = await fetch('https://backend-api-express-p6sl.onrender.com/user');
+      const data = await result.json();
+      console.log(data.success);
+      setUsers(data.users);
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
+  useEffect(() => {
+    getUsers()
+  }, [])
+
   return (
     <View style={styles.main}>
       <H1 title="Usuarios" />
