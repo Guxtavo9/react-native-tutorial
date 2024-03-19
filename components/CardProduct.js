@@ -3,16 +3,16 @@ import { Image } from "expo-image";
 
 import H4 from "./ui/H4";
 
-const CardUser = ({ user }) => {
+const CardProduct = ({ product }) => {
   return (
     <View style={styles.card}>
       <View style={styles.radius}>
-        <Image style={styles.avatarImg} source={user.avatar} />
+        <Image style={styles.photoImg} source={product.photo} />
       </View>
 
       <View>
-        <H4>{user.name}</H4>
-        <Text style={styles.email}>{user.email}</Text>
+        <H4>{product.name}</H4>
+        <Text style={styles.price}>{product.price}</Text>
       </View>
     </View>
   );
@@ -20,10 +20,9 @@ const CardUser = ({ user }) => {
 const styles = StyleSheet.create({
   card: {
     flex: 1,
-    width: 300,
-    height: 100,
+    width: 200,
+    height: 500,
     backgroundColor: "#fff",
-    borderRadius: 25,
     flexDirection: "row",
     // borderColor: "#000",
     // borderWidth: 1,
@@ -32,25 +31,15 @@ const styles = StyleSheet.create({
     marginHorizontal: 10,
     marginVertical: 10,
   },
-  avatarImg: {
+  photoImg: {
     width: 60,
     height: 60,
     borderRadius: 30,
     backgroundColor: "#fff",
   },
-
-  radius: {
-    marginHorizontal: 10,
-    marginVertical: 10,
-    width: 60,
-    height: 60,
-    backgroundColor: "#fff",
-    borderRadius: 30,
-    overflow: "hidden",
-  },
-  email: {
+  price: {
     marginTop: 4
 },
 });
 
-export default CardUser;
+export default CardProduct;

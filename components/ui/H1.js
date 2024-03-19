@@ -1,6 +1,6 @@
 import { Text, StyleSheet } from "react-native";
-const H1 = (props) => {
-  return <Text style={styles.h1}>{props.title}</Text>;
+const H1 = ({style, children}) => {
+  return <Text style={styles.h1}>{children}</Text>;
 };
 
 H1.propTypes = {};
