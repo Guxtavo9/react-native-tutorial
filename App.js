@@ -1,58 +1,23 @@
-import { StatusBar } from "expo-status-bar";
-import { StyleSheet, Text, View, ImageBackground } from "react-native";
-import { Image } from "expo-image";
-import Header from "./components/Header";
-import Footer from "./components/Footer";
-import Form from "./components/Form";
-import Body from "./components/Body";
+import { NavigationContainer } from "@react-navigation/native";
+import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import Cadastrar from "./screens/Cadastrar";
+import Editar from "./screens/Editar";
+import ListUser from "./screens/ListUser";
 
-const backgroundImg = require("./assets/background2.avif");
-// const backgroundImg = {uri:'https://c4.wallpaperflare.com/wallpaper/553/564/19/cyberpunk-amoled-dark-vertical-hd-wallpaper-preview.jpg'};
+const Stack = createNativeStackNavigator();
 
 export default function App() {
+
   return (
-    <View style={styles.container}>
-
-      <StatusBar style="ligth" />
-
-      <ImageBackground
-        source={backgroundImg}
-        resizeMode="cover"
-        style={styles.image}
-      >
-
-        <Header />
-      {/* {<Form /> } */}
-
-      <Body />
-
-      <Footer />
-      </ImageBackground>
-      
-      
-    </View>
+    <NavigationContainer>
+      {
+        /* Rest of your app code */
+          <Stack.Navigator>
+            <Stack.Screen name="Pricipal" component={ListUser} />
+            <Stack.Screen name="Editar" component={Editar} />
+            <Stack.Screen name="Cadastrar" component={Cadastrar} />
+          </Stack.Navigator>
+      }
+    </NavigationContainer>
   );
 }
-
-const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    // backgroundColor: "#fff",
-    // alignItems: "center",
-    // justifyContent: "center",
-  },
-  image: {
-    flex: 1,
-    width: "100%",
-    height: "100%",
-    justifyContent: "center",
-  },
-  text: {
-    color: "white",
-    fontSize: 12,
-    lineHeight: 84,
-    fontWeight: "bold",
-    textAlign: "center",
-    backgroundColor: "#000000c0",
-  },
-});
